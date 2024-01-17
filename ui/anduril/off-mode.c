@@ -149,13 +149,14 @@ uint8_t off_state(Event event, uint16_t arg) {
 
     // 1 click: regular mode
     else if (event == EV_1click) {
-        #if (B_TIMING_ON != B_TIMEOUT_T)
-        set_state(steady_state, memorized_level);
-        #else
+        //#if (B_TIMING_ON != B_TIMEOUT_T)
+        //set_state(steady_state, memorized_level);
+        //#else
         // FIXME: B_TIMEOUT_T breaks manual_memory and manual_memory_timer
         //        (need to duplicate manual mem logic here, probably)
-        set_state(steady_state, memorized_level);
-        #endif
+        //set_state(steady_state, memorized_level);
+        //#endif
+        set_state(strobe_state, 1); //tactical strobe
         return EVENT_HANDLED;
     }
 
@@ -194,7 +195,8 @@ uint8_t off_state(Event event, uint16_t arg) {
 
     // 2 clicks: highest mode (ceiling)
     else if (event == EV_2clicks) {
-        set_state(steady_state, MAX_LEVEL);
+        //set_state(steady_state, MAX_LEVEL);
+        set_state(steady_state, memorized_level);
         return EVENT_HANDLED;
     }
 

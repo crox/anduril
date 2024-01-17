@@ -10,9 +10,9 @@ strobe_mode_te current_strobe_type;
 
 // which strobe mode is active?
 #ifdef USE_CANDLE_MODE
-    #define DEFAULT_STROBE candle_mode_e
+    #define DEFAULT_STROBE tactical_strobe_e
 #else
-    #define DEFAULT_STROBE 0
+    #define DEFAULT_STROBE tactical_strobe_e
 #endif
 
 #endif  // ifdef USE_STROBE_STATE
