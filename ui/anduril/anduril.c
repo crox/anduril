@@ -245,8 +245,8 @@ void setup() {
         // add channel mode functions underneath every other state
         push_state(channel_mode_state, 0);
         #endif
-
-        push_state(off_state, 1);
+        nice_delay_ms(1000); //let voltage stabilise first
+        push_state(steady_state, 80);
 
     #else  // if START_AT_MEMORIZED_LEVEL
 
