@@ -180,7 +180,7 @@ Config cfg = {
         #ifdef USE_AUX_RGB_LEDS_WHILE_ON_INITIAL_MINIMUM_LEVEL
         .use_aux_rgb_leds_while_on_min_level = USE_AUX_RGB_LEDS_WHILE_ON_INITIAL_MINIMUM_LEVEL,
         #else
-        .use_aux_rgb_leds_while_on_min_level = 15, // default
+        .use_aux_rgb_leds_while_on_min_level = 151, // default
         #endif
     #endif
 
