@@ -84,3 +84,7 @@
 #undef BLINK_AT_RAMP_MIDDLE
 #endif
 
+#ifdef RGB_LED_OFF_DEFAULT
+#undef RGB_LED_OFF_DEFAULT
+#endif
+#define RGB_LED_OFF_DEFAULT 0x00
