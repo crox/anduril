@@ -115,7 +115,11 @@ typedef struct Config {
         uint8_t autolock_time;
     #endif
     #ifdef USE_TACTICAL_MODE
+        #if NUM_CHANNEL_MODES > 1
+        uint8_t tactical_levels[6];
+        #else
         uint8_t tactical_levels[3];
+        #endif
     #endif
 
     ///// hardware config / globals menu

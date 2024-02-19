@@ -80,7 +80,7 @@
 //#define POLICE_COLOR_STROBE_CH2        CM_AUXBLU
 
 #undef  TACTICAL_LEVELS
-#define TACTICAL_LEVELS 120,30,(RAMP_SIZE+3)  // high, low, police strobe
+#define TACTICAL_LEVELS 130,30,(RAMP_SIZE+3),0,0,0  // levels: high, low, police strobe. channels: default to active
 
 // party strobe, tac strobe, police, lightning, candle, bike
 #define DEFAULT_STROBE_CHANNELS  CM_BOTH,CM_BOTH,CM_BOTH,CM_AUTO,CM_AUTO,CM_AUTO

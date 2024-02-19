@@ -622,10 +622,13 @@ Other commands in Tactical Mode are:
     - 1st blink: configure tactical slot 1
     - 2nd blink: configure tactical slot 2
     - 3rd blink: configure tactical slot 3
+    - 4th blink: configure tactical slot 1 channel mode (only on lights with more than one channel mode)
+    - 5th blink: configure tactical slot 2 channel mode (only on lights with more than one channel mode)
+    - 6th blink: configure tactical slot 3 channel mode (only on lights with more than one channel mode)
 
 To change what is in a tactical slot, press `7H`, then release the button
 after the 1st, 2nd, or 3rd blink.  Then enter a number.  Each click adds
-1, and each hold adds 10.  The number can be:
+1, and each hold adds 10.  For the level, the number can be:
 
   - 1 to 150: set the brightness level
   - 0: last-used strobe mode
@@ -638,6 +641,15 @@ after the 1st, 2nd, or 3rd blink.  Then enter a number.  Each click adds
 This assumes the light has a ramp 150 levels long.  Strobe modes start
 at the ramp size plus 1, so it may be different if a light has a
 different ramp size.
+
+For the channel mode, if available, the number corresponds to the number of the
+channel mode in the same order as the channel mode config menu (see
+[Channel mode config](#channel-modes-aka-tint-ramping-or-multi-channel-controls).
+A value of 0 (default) will use the channel mode selected in ramp mode, while a
+value of 1 or higher will use that numbered channel mode, allowing a specific
+channel mode to always be used per-slot, for example, configuring a defensive
+tactical mode to always use all available channels, or configuring specific
+separate channels for light painting purposes.
 
 
 Configuration Menus
@@ -1116,6 +1128,9 @@ This is a table of all button mappings in Anduril, in one place:
 |                |        |         | 1: tactical slot 1
 |                |        |         | 2: tactical slot 2
 |                |        |         | 3: tactical slot 3
+|                |        |         | 4: tactical slot 1 channel (if available on hardware)
+|                |        |         | 5: tactical slot 2 channel (if available on hardware)
+|                |        |         | 6: tactical slot 3 channel (if available on hardware)
 
 ### Config Menus
 

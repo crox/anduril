@@ -44,7 +44,7 @@
 #define CANDLE_AMPLITUDE 33
 
 // turbo (i.e. "giggles" mode), low, tactical strobe
-#define TACTICAL_LEVELS 150,30,(RAMP_SIZE+2)
+#define TACTICAL_LEVELS 150,30,(RAMP_SIZE+2)  // levels: high, low, tactical strobe
 
 // stop panicking at 80% power, this light has plenty of thermal mass
 #define THERM_FASTER_LEVEL POWER_80PX  // throttle back faster when high
