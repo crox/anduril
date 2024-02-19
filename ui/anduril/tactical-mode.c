@@ -36,9 +36,20 @@ uint8_t tactical_state(Event event, uint16_t arg) {
                     // click                            1 2 3
                     // tactical_levels[] level slot     0 1 2
                     // tactical_levels[] channel slot   3 4 5
-                    if (cfg.tactical_levels[click+2]){ // if configured, i.e. not zero
+                    if (
+                        (cfg.tactical_levels[click+2]) // if configured, i.e. not zero
+                        && (lvl <= RAMP_SIZE) // don't mess with channel at all if it's a strobe mode
+                                              // (strobes have per-channel config already, although setting a channel per
+                                              // strobe in tactical mode is feasible for all but police strobe if we *wanted*
+                                              // the extra complexity? (TODO: How would these two interact?)(
+                        ){
                         channel_mode = (cfg.tactical_levels[click+2] - 1); // -1 is so that entering value '1' selects
                                                                            // the first channel mode (0-indexed)
+                    } else {
+                        // we need to set the channel mode *back* to prev_ch because by passing through earlier slots
+                        // to reach slot 2 or 3, channel mode gets reset if there are modes configured for either of
+                        // those slots, so reset it to be safe.
+                        channel_mode = prev_ch;
                     }
                 #endif
             } else {  // momentary strobe mode
