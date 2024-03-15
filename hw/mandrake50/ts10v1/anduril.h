@@ -3,5 +3,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
-#include "wurkkos/ts10/rgbaux/anduril.h"
+#include "../hw/wurkkos/ts10/rgbaux/anduril.h"
 
