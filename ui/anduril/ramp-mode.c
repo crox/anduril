@@ -141,20 +141,17 @@ uint8_t steady_state(Event event, uint16_t arg) {
         return EVENT_HANDLED;
     }
 
-    #ifdef USE_LOCKOUT_MODE
+    #if defined(USE_LOCKOUT_MODE) && !defined(PREVIOUS_CHANNEL_REPLACES_LOCKOUT)
     #ifdef USE_PREVIOUS_CHANNEL
-    #ifndef PREVIOUS_CHANNEL_REPLACES_LOCKOUT //don't include this code at all if we're forcing overriding this shortcut
-    // 4 clicks: shortcut to lockout mode
     else if ((event == EV_4clicks) && (!cfg.previous_channel_enabled))
     #else
     else if (event == EV_4clicks)
-    #endif //ifndef PREVIOUS_CHANNEL_REPLACES_LOCKOUT
+    #endif //ifdef USE_PREVIOUS_CHANNEL
     {
         set_level(0);
         set_state(lockout_state, 0);
         return EVENT_HANDLED;
     }
-    #endif //ifdef USE_PREVIOUS_CHANNEL
     #endif //ifdef USE_LOCKOUT_MODE
 
     // hold: change brightness (brighter, dimmer)
